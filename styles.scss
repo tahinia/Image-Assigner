@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    color: #fff;
+}
+.page-container{
+    display: flex;
+    flex-direction: row;
+    background-color: #08415c;
+    height: 120vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.image-column{
+    width: 40%;
+}
+
+.image-holder{
+    
+}

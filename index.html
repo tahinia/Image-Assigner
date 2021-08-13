@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Image Assinger</title>
+</head>
+<body>
+ <div class="page-container">
+     <div class="image-colunm">
+         <h2>Click on the image to generate a new one!</h2>
+         <div id="image-box" class="image-holder">
+             <img src="" alt=""/>
+             <div class="refresh"></div>
+         </div>
+         
+     </div>
+     <div class="email-column">
+         <form>
+             <label for="email">Email</label><br>
+             <input type="email" id="email" name="email">
+             <input type="submit" value="Submit">
+         </form>
+     </div>
+ </div>
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>  
+<script src="/app.js"></script>
+</body>
+</html>
