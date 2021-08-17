@@ -2,25 +2,45 @@
 
 
 body{
-    margin: 0;
+    background-color: #08415c;
     color: #fff;
 }
 .page-container{
     display: flex;
-    flex-direction: row;
-    background-color: #08415c;
-    height: 120vh;
+    flex-direction: column;
+    
+    height: 100vh;
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include mq('sm'){
+        flex-direction: row;
+    }
 }
 
 
 
 .image-column{
-    width: 40%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     padding: 20px;
     
+}
+
+.email-column{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    @include mq('sm'){
+        padding-right: 15px;
+        padding-left: 10px;
+    }
 }
 
 .image-holder{
@@ -47,7 +67,7 @@ body{
     object-fit: cover;
     position: relative;
     width: 100%;
-    @include mq('md') {
+    @include mq('sm') {
         height: 80vh;
     }
     @media screen and (-ms-high-contrast: none) {

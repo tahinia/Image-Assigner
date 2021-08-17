@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  background-color: #08415c;
   color: #fff;
 }
 
@@ -7,12 +7,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  background-color: #08415c;
-  height: 120vh;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -20,11 +19,50 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .page-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 .image-column {
-  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
   padding: 20px;
+}
+
+.email-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .email-column {
+    padding-right: 15px;
+    padding-left: 10px;
+  }
 }
 
 .image-holder {
@@ -55,7 +93,7 @@ body {
   width: 100%;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .randomImage {
     height: 80vh;
   }
