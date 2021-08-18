@@ -32,11 +32,18 @@
          
      </div>
      <div class="email-column">
-         <form>
-             <label for="email">Email</label><br>
-             <input type="email" id="email" name="email">
-             <input type="submit" value="Submit">
-         </form>
+        <form id="form">
+            <!-- <form> -->
+                <fieldset>
+                    <input type="email" id="assign-email" name="email">
+                    <label id="email-label">Email</label>
+                    <span id="email-message">Please enter a valid email address.</span>
+                </fieldset>
+            <!-- </form> -->
+            <button type="button" id="assign-button"><span>Assign</span></button>
+            </form>
+        <div id="assigned">
+        </div>
      </div>
  </div>
     
