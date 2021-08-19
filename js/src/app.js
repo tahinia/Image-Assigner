@@ -8,6 +8,7 @@ const emailButton = document.getElementById('assign-button');
 const emailMessage = document.getElementById('email-message');
 const assignedList = document.getElementById('assigned-list');
 const assignedCont = document.getElementById('assigned');
+let storage = [];
 
 function createImage() {
     axios.get("https://picsum.photos/200/300")
@@ -59,14 +60,14 @@ emailButton.addEventListener('click', function () {
         if (storage.length === 0) {
             storage.push({
                 "email": grabbedEmail,
-                "urls": [`<a href="${pulledImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${pulledImage.getAttribute('src')}"></a>`]
+                "urls": [`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`]
             });
-        } else if (indexOfEmail !== -1 && !storage[indexOfEmail].urls.includes(`<a href="${pulledImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${pulledImage.getAttribute('src')}"></a>`)) {
-            storage[indexOfEmail].urls.push(`<a href="${pulledImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${pulledImage.getAttribute('src')}"></a>`);
+        } else if (indexOfEmail !== -1 && !storage[indexOfEmail].urls.includes(`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`)) {
+            storage[indexOfEmail].urls.push(`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`);
         } else if (indexOfEmail === -1) {
             storage.push({
                 "email": grabbedEmail,
-                "urls": [`<a href="${pulledImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${pulledImage.getAttribute('src')}"></a>`]
+                "urls": [`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`]
 
             });
         }
@@ -105,7 +106,7 @@ emailButton.addEventListener('click', function () {
         })();
 
         topLoader.classList.add('loading');
-        pullImage();
+        createImage();
     }
 
 });
