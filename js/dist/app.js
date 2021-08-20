@@ -10,7 +10,8 @@ var emailButton = document.getElementById('assign-button');
 var emailMessage = document.getElementById('email-message');
 var assignedList = document.getElementById('assigned-list');
 var assignedCont = document.getElementById('assigned');
-var storage = [];
+var storage = []; 
+// function to grab image from picsum and create an element to display it
 
 function createImage() {
   axios.get("https://picsum.photos/200/300").then(function (response) {
@@ -29,11 +30,17 @@ function createImage() {
   });
 }
 
-createImage();
+createImage(); 
+// action to create a new image when clicking on the webpage through refresh
+
 refresh.addEventListener('click', function () {
   topLoader.classList.add('loading');
   createImage();
-});
+}); 
+
+// email section
+// This will validate the email and then assign the written email with the current image shown
+
 emailButton.addEventListener('click', function () {
   var grabbedEmail = emailInput.value;
   var indexOfEmail = storage.findIndex(function (i) {
