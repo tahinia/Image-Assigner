@@ -10,8 +10,7 @@ var emailButton = document.getElementById('assign-button');
 var emailMessage = document.getElementById('email-message');
 var assignedList = document.getElementById('assigned-list');
 var assignedCont = document.getElementById('assigned');
-var storage = []; 
-// function to grab image from picsum and create an element to display it
+var storage = []; // function to grab image from picsum and create an element to display it
 
 function createImage() {
   axios.get("https://picsum.photos/200/300").then(function (response) {
@@ -30,15 +29,12 @@ function createImage() {
   });
 }
 
-createImage(); 
-// action to create a new image when clicking on the webpage through refresh
+createImage(); // action to create a new image when clicking on the webpage through refresh
 
 refresh.addEventListener('click', function () {
   topLoader.classList.add('loading');
   createImage();
-}); 
-
-// email section
+}); // email section
 // This will validate the email and then assign the written email with the current image shown
 
 emailButton.addEventListener('click', function () {
@@ -78,7 +74,7 @@ emailButton.addEventListener('click', function () {
 
     if (storage.length !== 0) {
       for (var i = 0; i < storage.length; i++) {
-        emails += "<ul class=\"assigned-list\">\n        <li class=\"assigned-main-list\">\n            <ul class=\"email-heading\">\n                <h3>".concat(storage[i].email, "</h3>\n                <i class=\"fas fa-chevron-down\"></i>\n                <i class=\"fas fa-chevron-up\"></i>\n            </ul>\n            <ul>\n                <li class=\"assigned-sub-list\">\n                    ").concat(storage[i].urls.join(""), "\n                </li>\n            </ul>\n        </li>\n    </ul>");
+        emails += "<ul class=\"assigned-list\">\n        <li class=\"assigned-main-list\">\n            <ul class=\"email-heading\">\n                <h3>".concat(storage[i].email, "</h3>\n                <p> Number of Images :").concat(storage[i].urls.length, "</p>\n                <i class=\"fas fa-chevron-down\"></i>\n                <i class=\"fas fa-chevron-up\"></i>\n            </ul>\n            <ul>\n                <li class=\"assigned-sub-list\">\n                    ").concat(storage[i].urls.join(""), "\n                </li>\n            </ul>\n        </li>\n    </ul>");
       }
     }
 

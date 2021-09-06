@@ -50,6 +50,7 @@ emailButton.addEventListener('click', function () {
     const grabbedEmail = emailInput.value;
     const indexOfEmail = storage.findIndex(i => i.email === grabbedEmail);
     let emails = "";
+    
 
     function validateEmail(email) {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -68,14 +69,17 @@ emailButton.addEventListener('click', function () {
         if (storage.length === 0) {
             storage.push({
                 "email": grabbedEmail,
-                "urls": [`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`]
+                "urls": [`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`],
+                
+                
             });
         } else if (indexOfEmail !== -1 && !storage[indexOfEmail].urls.includes(`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`)) {
             storage[indexOfEmail].urls.push(`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`);
         } else if (indexOfEmail === -1) {
             storage.push({
                 "email": grabbedEmail,
-                "urls": [`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`]
+                "urls": [`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`],
+                
 
             });
         }
@@ -86,6 +90,7 @@ emailButton.addEventListener('click', function () {
         <li class="assigned-main-list">
             <ul class="email-heading">
                 <h3>${storage[i].email}</h3>
+                <p> Number of Images :${storage[i].urls.length}</p>
                 <i class="fas fa-chevron-down"></i>
                 <i class="fas fa-chevron-up"></i>
             </ul>
