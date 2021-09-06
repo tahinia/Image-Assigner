@@ -90,7 +90,7 @@ emailButton.addEventListener('click', function () {
         <li class="assigned-main-list">
             <ul class="email-heading">
                 <h3>${storage[i].email}</h3>
-                <p> Number of Images :${storage[i].urls.length}</p>
+                <p> Number of Images : ${storage[i].urls.length}</p>
                 <i class="fas fa-chevron-down"></i>
                 <i class="fas fa-chevron-up"></i>
             </ul>

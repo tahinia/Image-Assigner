@@ -74,7 +74,7 @@ emailButton.addEventListener('click', function () {
 
     if (storage.length !== 0) {
       for (var i = 0; i < storage.length; i++) {
-        emails += "<ul class=\"assigned-list\">\n        <li class=\"assigned-main-list\">\n            <ul class=\"email-heading\">\n                <h3>".concat(storage[i].email, "</h3>\n                <p> Number of Images :").concat(storage[i].urls.length, "</p>\n                <i class=\"fas fa-chevron-down\"></i>\n                <i class=\"fas fa-chevron-up\"></i>\n            </ul>\n            <ul>\n                <li class=\"assigned-sub-list\">\n                    ").concat(storage[i].urls.join(""), "\n                </li>\n            </ul>\n        </li>\n    </ul>");
+        emails += "<ul class=\"assigned-list\">\n        <li class=\"assigned-main-list\">\n            <ul class=\"email-heading\">\n                <h3>".concat(storage[i].email, "</h3>\n                <p> Number of Images : ").concat(storage[i].urls.length, "</p>\n                <i class=\"fas fa-chevron-down\"></i>\n                <i class=\"fas fa-chevron-up\"></i>\n            </ul>\n            <ul>\n                <li class=\"assigned-sub-list\">\n                    ").concat(storage[i].urls.join(""), "\n                </li>\n            </ul>\n        </li>\n    </ul>");
       }
     }
 
