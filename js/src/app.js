@@ -1,55 +1,89 @@
 const imagebox = document.getElementById("image-box");
-const refresh = document.querySelector('.refresh');
+const reload = document.querySelector('.reload-button');
 const newImage = document.createElement('img');
-const topLoader = document.getElementById('top-loader-container');
+const imageOutput = $("#image-list");
+const imgbox = document.getElementById("img-box");
 const emailInput = document.getElementById('assign-email');
 const emailLabel = document.getElementById('email-label');
 const emailButton = document.getElementById('assign-button');
 const emailMessage = document.getElementById('email-message');
 const assignedList = document.getElementById('assigned-list');
 const assignedCont = document.getElementById('assigned');
-let storage = [];
+let emaildb= [];
+let counter = 0;
+createImage();
 
 // function to grab image from picsum and create an element to display it
 
 function createImage() {
-    axios.get("https://picsum.photos/200/300")
-        .then(function (response) {
-            const picID = response.headers['picsum-id'];
-            let picUrl = `https://picsum.photos/id/${picID}/500`;
-            imagebox.insertBefore(newImage, refresh);
+
+    let imgUrl = "https://picsum.photos/id/"+ randomNumber()+"/300";
+    axios.get(imgUrl)
+        .then(function (response) {            
+            imagebox.insertBefore(newImage, imgbox);
             newImage.setAttribute(`class`, `randomImage`);
-            newImage.setAttribute(`src`, picUrl);
+            newImage.setAttribute(`src`, imgUrl);
             newImage.setAttribute(`alt`, `Picsum Image`);
-            topLoader.classList.add('loading');
+            
             console.log(response);
         })
         .catch(function (error) {
             console.log(error);
-        })
-        .finally(function (response) {
-            topLoader.classList.remove('loading');
         });
+
+    }
+function randomNumber(){
+
+    return Math.floor(Math.random() * 500) + 1;
 }
 
-createImage();
 
 
-// action to create a new image when clicking on the webpage through refresh
+// action to create a new image when clicking on the webpage through reload
 
-refresh.addEventListener('click', function () {
-    topLoader.classList.add('loading');
-    createImage();
-});
+// reload.addEventListener('click', function () {
+//     createImage();
+// });
 
 
  // email section
 // This will validate the email and then assign the written email with the current image shown
 
-emailButton.addEventListener('click', function () {
-    const grabbedEmail = emailInput.value;
-    const indexOfEmail = storage.findIndex(i => i.email === grabbedEmail);
-    let emails = "";
+function sameEmail (email){
+    return emaildb.includes(email);
+    
+}
+
+function addImageandEmail(email){
+    
+    emaildb.push(email);
+    imageOutput.append( `<ul class="email-section">` +
+                         `<li class= "email-title"> ${email}</li>`+ `</ul>` +`<ul  class ="email-image ${counter}">`+`<img class ="newImage" src="${newImage.getAttribute('src')}"> </ul>`);
+    counter++
+
+
+}
+
+function addImgtolist(email){
+    for( var i= 0; i < emaildb.length; i++){
+
+        if(email === emaildb[i]){
+            let img = document.createElement('img')
+            img.src = newImage.getAttribute('src');
+            img.setAttribute("class", "newImage");
+            $('.email-image')[i].append(img);
+        }
+    }
+
+}
+
+
+
+
+
+function addEmailandImage() {
+    const pulledEmail = emailInput.value;
+  
     
 
     function validateEmail(email) {
@@ -57,69 +91,35 @@ emailButton.addEventListener('click', function () {
         return re.test(email);
     }
 
-    if (!validateEmail(grabbedEmail)) {
+    if (!validateEmail(pulledEmail)) {
         emailMessage.classList.add('shown');
         emailInput.classList.add('error');
-        emailLabel.classList.add('error');
-    } else if (validateEmail(grabbedEmail)) {
+    } else if (validateEmail(pulledEmail)) {
         emailMessage.classList.remove('shown');
         emailInput.classList.remove('error');
-        emailLabel.classList.remove('error');
 
-        if (storage.length === 0) {
-            storage.push({
-                "email": grabbedEmail,
-                "urls": [`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`],
-                
-                
-            });
-        } else if (indexOfEmail !== -1 && !storage[indexOfEmail].urls.includes(`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`)) {
-            storage[indexOfEmail].urls.push(`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`);
-        } else if (indexOfEmail === -1) {
-            storage.push({
-                "email": grabbedEmail,
-                "urls": [`<a href="${newImage.getAttribute('src')}" target="_blank"><img class="assigned-sub-image" src="${newImage.getAttribute('src')}"></a>`],
-                
-
-            });
+        //check if email is the same as before
+        if(sameEmail(pulledEmail)){
+           //if it is, add onto the list and add onto the same div 
+           addImgtolist(pulledEmail)
+           
+        } else{
+            addImageandEmail(pulledEmail)
+            
         }
 
-        if (storage.length !== 0) {
-            for (let i = 0; i < storage.length; i++) {
-                emails += `<ul class="assigned-list">
-        <li class="assigned-main-list">
-            <ul class="email-heading">
-                <h3>${storage[i].email}</h3>
-                <p> Number of Images : ${storage[i].urls.length}</p>
-                <i class="fas fa-chevron-down"></i>
-                <i class="fas fa-chevron-up"></i>
-            </ul>
-            <ul>
-                <li class="assigned-sub-list">
-                    ${storage[i].urls.join("")}
-                </li>
-            </ul>
-        </li>
-    </ul>`;
-            }
-        }
-
-        $('#assigned').html(emails);
-
-        (function assignButtons() {
-            let buttons = document.getElementsByClassName('email-heading');
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].addEventListener('click', function (e) {
-                    this.classList.toggle("active");
-                    this.nextElementSibling.children[0].classList.toggle("active");
-                    this.querySelector('.fa-chevron-down').classList.toggle('toggled');
-                    this.querySelector('.fa-chevron-up').classList.toggle('toggled');
-                });
-            }
-        })();
-
-        topLoader.classList.add('loading');
         createImage();
+
+        // if it isnt, make a new div for that image
+
+        
+        
+
+        
+
+       
+
+       
     }
 
-});
+}

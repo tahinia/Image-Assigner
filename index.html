@@ -4,45 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <title>Image Assigner</title>
     <script src="https://kit.fontawesome.com/d9dd6a6053.js" crossorigin="anonymous"></script>
 </head>
 <body>
  <div class="page-container">
      <div class="image-column">
-         <h2>Click on the image to generate a new one!</h2>
-         <div id="image-box" class="image-holder">
-            <div class="loader-container">
-                <div id="loader-inner" class="loader-inner">
-                    <div class="loader"></div>
-                    <p>Loading Image</p>
-                </div>
-            </div>
-             <div class="refresh">
-                <i class="fas fa-sync-alt"></i>
-             </div>
-             <div id="top-loader-container">
-                <div id="top-loader-inner" class="top-loader-inner">
-                    <div class="top-loader"></div>
-                    <p>Loading Image</p>
-                </div>
-            </div>
-         </div>
          
+         <div id="image-box" class="image-holder">
+            
+             <div class="img-box">
+             </div>
+            
+         </div>
+         <button type="button" class="reload-button" onclick="createImage()"> Reload </button>
      </div>
      <div class="email-column">
         <form id="form">
             
                 <fieldset>
-                    <input type="email" id="assign-email" name="email">
-                    <label id="email-label">Email</label>
+                    <input type="email" id="assign-email" placeholder="Email" name="email" required>
+                    
                     <span id="email-message">Please enter a valid email address.</span>
                 </fieldset>
           
-            <button type="button" id="assign-button"><span>Assign</span></button>
+            <button type="button" id="assign-button" onclick="addEmailandImage()"><span>Assign</span></button>
             </form>
-        <div id="assigned">
+        <div id="image-list">
         </div>
      </div>
  </div>

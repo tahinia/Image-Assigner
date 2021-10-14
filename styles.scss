@@ -24,16 +24,15 @@ button {
     display: flex;
     flex-direction: column;
     
-    height: 100vh;
+    height: auto;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    margin: 0 auto;
+    width: 60%;
     padding-left: 20px;
     padding-right: 20px;
 
-    @include mq('sm'){
-        flex-direction: row;
-    }
+    
 }
 
 
@@ -43,6 +42,7 @@ button {
     flex-direction: column;
     width: 100%;
     padding: 20px;
+    justify-content: center;
     
 }
 
@@ -77,14 +77,15 @@ button {
 }
 
 .randomImage{
-    min-width: 250px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     position: relative;
     width: 100%;
-    border-bottom: 2px solid orange;
+    object-fit: cover;
     @include mq('sm') {
-        height: 80vh;
+        height: 400px;
+        width: 400px;
     }
     @media screen and (-ms-high-contrast: none) {
         
@@ -94,24 +95,37 @@ button {
         display: block;
     }
 }
-    
-.refresh{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,.5);
-    width: 100%;
-    min-width: 250px;
-    height: calc(100% - 6px);
+
+.reload-button{
+    margin-top: 15px;
+    padding: 15px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    align-self: center;
+    letter-spacing: 2px;
+    color: #212121;
+    outline: 0;
+    border-radius: 5px;
     cursor: pointer;
-    &:focus{
-        display: none;
+    background: orange;
+    transition: .15s ease background-color, .3s ease transform;
+    box-shadow: 0 0 10px black;
+    width: 75%;
+    &:hover {
+        transform: scale(0.95);
+        box-shadow: 0 0 3px grey;
+        background-color: darken(orange, 4%);
     }
-    @media screen and (-ms-high-contrast: none) {
-    height: 100%;
+    &:active {
+        background-color: darken(orange, 10%);
+    }
+    @include mq('sm') {
+        
+        width: 50%;
     }
 }
+    
+
 
 
 .loader-container {
@@ -190,7 +204,10 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
+    margin-top: 20px;
+    text-align: center;
 }
 
 fieldset {
@@ -206,14 +223,12 @@ fieldset {
 
 #assign-email {
     display: block;
-    width: 100%;
+    width: 80%;
     background-color: darken(#08415c ,4%) ;
     border: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom: 2px solid orange;
-    padding: 12px;
-    padding-top: 20px;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 20px;
     color:  #fff;
     font-family: 'Roboto', sans-serif;
     font-size: .825rem;
@@ -231,18 +246,7 @@ fieldset {
     }
 }
 
-#email-label {
-    font-family: 'Roboto', sans-serif;
-    font-size: .65rem;
-    position: absolute;
-    top: 5px;
-    left: 12px;
-    color: orange;
-    &.error {
-        color: red;
-        font-size: 1rem;;
-    }
-}
+
 
 #email-message {
     font-family: 'Roboto', sans-serif;
@@ -283,7 +287,7 @@ fieldset {
         background-color: darken(orange, 10%);
     }
     @include mq('sm') {
-        align-self: flex-start;
+        
         width: 50%;
     }
 }
@@ -291,7 +295,7 @@ fieldset {
 
 // Email list
 
-#assigned {
+#image-list {
     width: 100%;
 }
 
@@ -363,25 +367,13 @@ fieldset {
 }
 
 .assigned-sub-list {
-    display: none;
+    display: flex;
     width: 100%;
     background-color: #2E2E2E;
     padding: 15px;
-    &.active {
-        display: grid; 
-        gap: 0px 0px; 
-        grid-template-columns: 1fr 1fr; 
-        @include mq('sm') {
-            grid-template-columns: 1fr 1fr 1fr; 
-        }
+   
         
-        @include mq('lg') {
-            grid-template-columns: 1fr 1fr 1fr 1fr; 
-        }
-        @media screen and (-ms-high-contrast: none) {
-            display: flex;
-        }
-    }
+   
     @include mq('sm'){
         max-height: 400px;
         overflow-x: hidden;
@@ -428,7 +420,7 @@ fieldset {
         transform: scale(1.04);
         cursor: pointer;
         box-shadow: 0 0 8px black, inset 0px 0px 0px 6px orange;
-        z-index: 999;
+        z-index: 10;
     }
 }
 
