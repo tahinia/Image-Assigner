@@ -72,12 +72,13 @@ function addEmailandImage() {
     emailInput.classList.remove('error'); //check if email is the same as before
 
     if (sameEmail(pulledEmail)) {
-      //if it is, add onto the list and add onto the same div 
+      //if it is, add onto the list and add onto the same ul
       addImgtolist(pulledEmail);
     } else {
+      // if it isnt, make a new ul for that image
       addImageandEmail(pulledEmail);
     }
 
-    createImage(); // if it isnt, make a new div for that image
+    createImage();
   }
 }
