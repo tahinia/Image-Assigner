@@ -1,17 +1,17 @@
 @import "mixins";
 
 
-body{
+body {
     background-color: #08415c;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-ul{
+ul {
     list-style: none;
 
 }
@@ -21,10 +21,11 @@ button {
     outline: none;
     text-transform: uppercase;
 }
-.page-container{
+
+.page-container {
     display: flex;
     flex-direction: column;
-    
+
     height: auto;
     justify-content: center;
     align-items: center;
@@ -33,64 +34,66 @@ button {
     padding-left: 20px;
     padding-right: 20px;
 
-    
+
 }
 
 
 
-.image-column{
+.image-column {
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 100%;
     padding: 20px;
     justify-content: center;
-    
+
 }
 
-.email-column{
+.email-column {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
 
-    @include mq('sm'){
+    @include mq('sm') {
         padding-right: 15px;
         padding-left: 10px;
     }
 }
 
-.image-holder{
+.image-holder {
     position: relative;
     text-align: center;
     width: 100%;
 
-   
 
-    
+
+
 }
 
-.randomImage{
+.randomImage {
     width: 300px;
     height: 300px;
     object-fit: cover;
     position: relative;
     width: 100%;
     object-fit: cover;
+
     @include mq('sm') {
         height: 400px;
         width: 400px;
     }
+
     @media screen and (-ms-high-contrast: none) {
-        
-    
+
+
         height: 100%;
         width: 100%;
         display: block;
     }
 }
 
-.reload-button{
+.reload-button {
     margin-top: 15px;
     padding: 15px 25px;
     font-weight: bold;
@@ -104,20 +107,23 @@ button {
     transition: .15s ease background-color, .3s ease transform;
     box-shadow: 0 0 10px black;
     width: 75%;
+
     &:hover {
         transform: scale(0.95);
         box-shadow: 0 0 3px grey;
         background-color: darken(orange, 4%);
     }
+
     &:active {
         background-color: darken(orange, 10%);
     }
+
     @include mq('sm') {
-        
+
         width: 50%;
     }
 }
-    
+
 
 
 
@@ -141,6 +147,7 @@ fieldset {
     width: 100%;
     border-width: 0;
     padding: 0;
+
     @include mq('sm') {
         margin-top: 0;
     }
@@ -149,25 +156,28 @@ fieldset {
 #assign-email {
     display: block;
     width: 80%;
-    background-color: darken(#08415c ,4%) ;
+    background-color: darken(#08415c, 4%);
     border: none;
     margin: 0 auto;
     border-radius: 5px;
     padding: 20px;
-    color:  #fff;
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     font-size: .825rem;
+
     &:focus {
         outline: 0;
         border-radius: 5px;
         border: 1px solid orange;
-        
+
     }
+
     &::placeholder {
         color: #949494;
     }
+
     &.error {
-        border: 1px solid  red;
+        border: 1px solid red;
     }
 }
 
@@ -175,7 +185,7 @@ fieldset {
 
 #email-message {
     font-size: 1rem;
-    color:  red;
+    color: red;
     margin-top: 5px;
     display: none;
     transition: .3s ease all;
@@ -201,16 +211,19 @@ fieldset {
     transition: .15s ease background-color, .3s ease transform;
     box-shadow: 0 0 10px black;
     width: 75%;
+
     &:hover {
         transform: scale(0.95);
         box-shadow: 0 0 3px grey;
         background-color: darken(orange, 4%);
     }
+
     &:active {
         background-color: darken(orange, 10%);
     }
+
     @include mq('sm') {
-        
+
         width: 50%;
     }
 }
@@ -222,9 +235,10 @@ fieldset {
     width: 100%;
 }
 
-.email-section{
+.email-section {
     padding: 0;
     margin: 0;
+
     &:first-of-type {
         margin-top: 30px;
     }
@@ -237,7 +251,7 @@ fieldset {
 .email-title {
     display: flex;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     width: 100%;
     padding-left: 15px;
     padding-right: 15px;
@@ -247,13 +261,14 @@ fieldset {
     border-bottom: 1px solid orange;
     cursor: pointer;
     transition: .15s ease background-color;
-    > h3 {
+
+    >h3 {
         font-weight: 400;
         font-size: .9rem;
         padding-left: 15px;
     }
-    
-    
+
+
     &:hover {
         background-color: darken(#08415c, 8%);
         border: 1px solid fade-out(orange, .75);
@@ -269,9 +284,11 @@ fieldset {
     background-color: orange;
     border: none;
     transition: .15s ease background-color;
-    > h3 {
+
+    >h3 {
         font-weight: 900;
     }
+
     &:hover {
         background-color: darken(orange, 4%);
     }
@@ -284,24 +301,24 @@ fieldset {
     width: 100%;
     background-color: #2E2E2E;
     padding: 15px;
-   
-        
-   
-    @include mq('sm'){
+
+
+
+    @include mq('sm') {
         max-height: 400px;
         overflow-x: hidden;
         overflow-y: auto;
     }
-    
+
     &::-webkit-scrollbar {
         width: 2px;
     }
-     
-   
-    
-    
-    
-    
+
+
+
+
+
+
 
 }
 
@@ -314,12 +331,14 @@ fieldset {
     margin-right: auto;
     transition: .3s ease all;
     position: relative;
+
     @media screen and (-ms-high-contrast: none) {
         width: 130px;
         height: 130px;
         margin-right: 0;
         margin-left: 0;
     }
+
     &:hover {
         transform: scale(1.04);
         cursor: pointer;
@@ -327,4 +346,3 @@ fieldset {
         z-index: 10;
     }
 }
-

@@ -163,7 +163,7 @@ fieldset {
 }
 
 #assign-email.error {
-  border: 1px solid  red;
+  border: 1px solid red;
 }
 
 #email-message {
