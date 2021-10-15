@@ -1,6 +1,7 @@
 body {
   background-color: #08415c;
   color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -58,18 +59,6 @@ button {
   width: 100%;
 }
 
-.image-holder:hover .refresh {
-  display: block;
-}
-
-.image-holder .fas {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-}
-
 .randomImage {
   width: 300px;
   height: 300px;
@@ -97,7 +86,6 @@ button {
 .reload-button {
   margin-top: 15px;
   padding: 15px 25px;
-  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   align-self: center;
   letter-spacing: 2px;
@@ -125,82 +113,6 @@ button {
   .reload-button {
     width: 50%;
   }
-}
-
-.loader-container {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 100%;
-  height: 100%;
-  text-align: center;
-}
-
-#loader-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.loader {
-  border: 16px solid #f3f3f3;
-  /* Light grey */
-  border-top: 16px solid lightblue;
-  /* Blue */
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-#top-loader-container {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 100%;
-  height: 100%;
-  text-align: center;
-}
-
-#top-loader-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 30px;
-  border-radius: 50%;
-  background-color: rgba(33, 33, 33, 0.7);
-}
-
-.top-loader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid lightblue;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 2s linear infinite;
-}
-
-#top-loader-container {
-  display: none;
-  top: 0;
-  left: 0;
-}
-
-#top-loader-container.loading {
-  display: flex;
 }
 
 #form {
@@ -255,7 +167,6 @@ fieldset {
 }
 
 #email-message {
-  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   color: red;
   margin-top: 5px;
@@ -270,7 +181,6 @@ fieldset {
 #assign-button {
   margin-top: 15px;
   padding: 15px 25px;
-  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   letter-spacing: 2px;
   color: #212121;
@@ -332,7 +242,6 @@ fieldset {
 }
 
 .email-title > h3 {
-  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: .9rem;
   padding-left: 15px;
