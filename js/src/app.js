@@ -11,7 +11,6 @@ const assignedList = document.getElementById('assigned-list');
 const assignedCont = document.getElementById('assigned');
 let emaildb= [];
 let counter = 0;
-let imagecount
 createImage();
 
 // function to grab image from picsum and create an element to display it

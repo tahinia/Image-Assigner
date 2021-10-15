@@ -13,7 +13,6 @@ var assignedList = document.getElementById('assigned-list');
 var assignedCont = document.getElementById('assigned');
 var emaildb = [];
 var counter = 0;
-var imagecount;
 createImage(); // function to grab image from picsum and create an element to display it
 
 function createImage() {
