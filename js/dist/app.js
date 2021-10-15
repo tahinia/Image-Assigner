@@ -13,6 +13,7 @@ var assignedList = document.getElementById('assigned-list');
 var assignedCont = document.getElementById('assigned');
 var emaildb = [];
 var counter = 0;
+var imagecount;
 createImage(); // function to grab image from picsum and create an element to display it
 
 function createImage() {
@@ -30,11 +31,7 @@ function createImage() {
 
 function randomNumber() {
   return Math.floor(Math.random() * 500) + 1;
-} // action to create a new image when clicking on the webpage through reload
-// reload.addEventListener('click', function () {
-//     createImage();
-// });
-// email section
+} // email section
 // This will validate the email and then assign the written email with the current image shown
 
 
@@ -44,7 +41,7 @@ function sameEmail(email) {
 
 function addImageandEmail(email) {
   emaildb.push(email);
-  imageOutput.append("<ul class=\"email-section\">" + "<li class= \"email-title\"> ".concat(email, "</li>") + "</ul>" + "<ul  class =\"email-image ".concat(counter, "\">") + "<img class =\"newImage\" src=\"".concat(newImage.getAttribute('src'), "\"> </ul>"));
+  imageOutput.append("<ul class=\"email-section\">" + "<li class= \"email-title\"> <h3>".concat(email, "</h3></p></li>") + "</ul>" + "<ul  class =\"email-image ".concat(counter, "\">") + "<img class =\"newImage\" src=\"".concat(newImage.getAttribute('src'), "\"> </ul>"));
   counter++;
 }
 

@@ -32,6 +32,7 @@ button {
 .image-column {
   display: flex;
   flex-direction: column;
+  text-align: center;
   width: 100%;
   padding: 20px;
   justify-content: center;
@@ -302,12 +303,12 @@ fieldset {
   width: 100%;
 }
 
-.assigned-list {
+.email-section {
   padding: 0;
   margin: 0;
 }
 
-.assigned-list:first-of-type {
+.email-section:first-of-type {
   margin-top: 30px;
 }
 
@@ -315,10 +316,10 @@ fieldset {
   padding-left: 0;
 }
 
-.email-heading {
+.email-title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
@@ -330,94 +331,59 @@ fieldset {
   transition: .15s ease background-color;
 }
 
-.email-heading > h3 {
+.email-title > h3 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: .9rem;
   padding-left: 15px;
 }
 
-.email-heading > svg {
-  font-size: .75rem;
-}
-
-.email-heading:hover {
+.email-title:hover {
   background-color: #052636;
   border: 1px solid rgba(255, 165, 0, 0.25);
 }
 
-.fa-chevron-down {
-  display: block;
-}
-
-.fa-chevron-down.toggled {
-  display: none;
-}
-
-.fa-chevron-up {
-  display: none;
-}
-
-.fa-chevron-up.toggled {
-  display: block;
-}
-
-.email-heading.active {
+.email-title.active {
   color: black;
   background-color: orange;
   border: none;
   transition: .15s ease background-color;
 }
 
-.email-heading.active > h3 {
+.email-title.active > h3 {
   font-weight: 900;
 }
 
-.email-heading.active:hover {
+.email-title.active:hover {
   background-color: #eb9800;
 }
 
-.assigned-sub-list {
+.email-image {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
   background-color: #2E2E2E;
   padding: 15px;
 }
 
 @media screen and (min-width: 768px) {
-  .assigned-sub-list {
+  .email-image {
     max-height: 400px;
     overflow-x: hidden;
     overflow-y: auto;
   }
 }
 
-@media screen and (-ms-high-contrast: none) {
-  .assigned-sub-list {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.email-image::-webkit-scrollbar {
+  width: 2px;
 }
 
-.assigned-sub-list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.assigned-sub-list::-webkit-scrollbar-track {
-  background-color: orange;
-  border-radius: 10px;
-}
-
-.assigned-sub-list::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: orange;
-}
-
-.assigned-sub-image {
-  width: 100%;
-  height: 100%;
+.newImage {
+  width: auto;
+  height: auto;
   object-fit: cover;
-  padding: 2px;
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
   transition: .3s ease all;
@@ -425,7 +391,7 @@ fieldset {
 }
 
 @media screen and (-ms-high-contrast: none) {
-  .assigned-sub-image {
+  .newImage {
     width: 130px;
     height: 130px;
     margin-right: 0;
@@ -433,7 +399,7 @@ fieldset {
   }
 }
 
-.assigned-sub-image:hover {
+.newImage:hover {
   transform: scale(1.04);
   cursor: pointer;
   box-shadow: 0 0 8px black, inset 0px 0px 0px 6px orange;

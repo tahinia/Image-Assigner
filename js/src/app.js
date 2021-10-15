@@ -11,6 +11,7 @@ const assignedList = document.getElementById('assigned-list');
 const assignedCont = document.getElementById('assigned');
 let emaildb= [];
 let counter = 0;
+let imagecount
 createImage();
 
 // function to grab image from picsum and create an element to display it
@@ -39,13 +40,6 @@ function randomNumber(){
 
 
 
-// action to create a new image when clicking on the webpage through reload
-
-// reload.addEventListener('click', function () {
-//     createImage();
-// });
-
-
  // email section
 // This will validate the email and then assign the written email with the current image shown
 
@@ -56,9 +50,9 @@ function sameEmail (email){
 
 function addImageandEmail(email){
     
-    emaildb.push(email);
+    emaildb.push(email)
     imageOutput.append( `<ul class="email-section">` +
-                         `<li class= "email-title"> ${email}</li>`+ `</ul>` +`<ul  class ="email-image ${counter}">`+`<img class ="newImage" src="${newImage.getAttribute('src')}"> </ul>`);
+                         `<li class= "email-title"> <h3>${email}</h3></p></li>`+ `</ul>` +`<ul  class ="email-image ${counter}">`+`<img class ="newImage" src="${newImage.getAttribute('src')}"> </ul>`);
     counter++
 
 
@@ -76,7 +70,6 @@ function addImgtolist(email){
     }
 
 }
-
 
 
 
@@ -107,7 +100,7 @@ function addEmailandImage() {
             addImageandEmail(pulledEmail)
             
         }
-
+        
         createImage();
 
         // if it isnt, make a new div for that image
